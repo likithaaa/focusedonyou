@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('./partials/header.ejs') %>
+    <title>Pictures</title>
+</head>
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+
+    <div class="addPic">
+        <nav>
+            <a href="/pictures/new" class="masterpiece">Add Your Own Masterpiece</a>
+        </nav>
+    </div class="picturesContainer">
+    <% for (let i = 0; i < pictures.length; i++) { %>
+        <div class="pic">
+        <img src="/<%= pictures[i].image %>" %>
+            <ul class="listPics">
+                <li>Image Name: <%= pictures[i].name %></li>
+                <li>Location Taken: <%= pictures[i].location %></li>
+                <li>Camera Used: <%= pictures[i].camera %></li>
+                <li><a href="/pictures/<%= pictures[i].id %>/comments">Comments</a></li>
+        </ul>
+        </div>
+    <% } %> 
+        
+</body>
+</html>
+<html>
+

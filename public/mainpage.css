@@ -1,0 +1,49 @@
+body {
+    background-image: url("./Images/withletters.png");
+    background-color: rgb(46, 200, 247);
+    background-size: cover;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.tagline {
+    text-align: center;
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    padding-top: 225px;
+
+}
+
+.cameraIcon {
+    margin: auto;
+}
+
+.buttonDiv, img {
+    width: 35%;
+    height: auto;
+}
+
+.buttonDiv, .enter {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(46, 200, 247);
+}
+
+.enter {
+    font-size: 22px;
+    font-family: 'Patrick Hand', cursive;
+    width: 0px;
+    background-color: Transparent;
+    outline: none;
+}
+
+#iconCam {
+    transform: translate(-96%, -5%);
+    text-decoration: none;
+
+}

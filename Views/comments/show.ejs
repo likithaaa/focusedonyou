@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/header.ejs') %>
+
+    <title>Pictures</title>
+</head>
+<body>
+    <%- include ('../partials/navbar.ejs') %>
+
+    <div class="commentInfo">
+        <img src="/<%= picture.image %>" %> <br><br>      
+        <%= picture.name %> <br>
+        <%= picture.location %> <br>
+        <%= picture.camera %> <br>
+        <% comments = picture.comments %>           
+    </div>
+    <div class="comment">    
+        <% for(let i = 0; i < comments.length; i++) { %>
+        <% comment = comments[i]; %>
+        <%= comment.comment %>
+        <% if((comment.postedUser != null) && (comment.postedUser == currentUser)) { %>
+            <div class="edit_comment_form hide">
+                <form action="/pictures/<%= picture.id %>/editComment/<%= comment.id %>" method="post">
+                    <textarea name="comment"><%= comment.comment%>
+                    </textarea><br>
+                    <input class="editSC" type="submit" value="Save" />
+                    <button class="editSC" onclick="closeComment(event)" class="close_comment_form">Cancel</button>
+                </form>
+            </div>
+            <br>
+            <a onclick="editComment(event)" class="edit_comment">Edit</a>
+            <a href="/pictures/<%= picture.id %>/deleteComment/<%= comment.id %>">Delete</a>
+        <% } %>     
+        <% } %> <br>
+    </div> 
+    <form class="commentForm" method="POST" action="/pictures/<%= picture.id %>/comments/new">
+        your comment, feedback, or question  <br>
+        <textarea name="comment">             ~ <%= currentUser %></textarea><br><br>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+        function editComment(event){
+            let parentElement = event.target.parentElement;
+            parentElement.children[0].className = 'show';
+        }
+        function closeComment(event){
+            let parentElement = event.target.parentElement;
+            parentElement.parentElement.className = 'hide';
+        }
+    </script>
+
+</body>
+</html>
+<html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('./partials/header.ejs') %>
+
+    <title>Import Your Picture</title>
+</head>
+<body>
+    
+    <h1 class="importTitle">Import Your Own Picture</h1>
+    
+    <form class= "importForm" action="/pictures" method="POST" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Name of your Image"/>
+        <br>
+        <div>
+            <label>Upload Picture:</label>
+            <input type="file" name="upload_pic" />
+        </div>
+        <label for="location">Location Taken:</label>
+        <input type="text" name="location" id="location" placeholder="Where was it taken?"/>
+        <br>
+        <label for="camera">Camera/Phone Used:</label>
+        <input type="text" name="camera" id="camera" placeholder="What camera/phone was used?"/>
+        <br>
+        <input type="submit" value="Upload Your Work">  
+    </form>
+
+    </body>
+</html>
