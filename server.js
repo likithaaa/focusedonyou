@@ -16,6 +16,7 @@ const methodOverride = require('method-override')
 require('dotenv').config();
 const session = require('express-session');
 
+
 /////// UPLOAD FORM /////////
 const helpers = require('./helpers');
 const storage = multer.diskStorage({
@@ -98,8 +99,9 @@ app.get('/sessions/new', isAuthenticated, (req, res) => {
     });
   })
 
+
 // EXPRESS TO MONGO
-mongoose.connect('mongodb://localhost:27017/uploads', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI + "/uploads", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 });
